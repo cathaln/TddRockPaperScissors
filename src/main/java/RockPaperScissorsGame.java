@@ -1,14 +1,13 @@
 public class RockPaperScissorsGame {
 
-    private int roundNumber = 1;
-    private String winnerAppendage;
+    private int completedRounds = 0;
 
     public String playRound(String playerOneHand, String playerTwoHand) {
-        if(roundNumber > 3) return "Game is over.";
+        if(completedRounds == 3) return "Game is over";
 
         String result = "Draw";
 
-        roundNumber++;
+        completedRounds++;
         switch (playerOneHand) {
             case "Rock":
                 if (playerTwoHand.equals("Paper")) result = "Player2";
@@ -24,7 +23,11 @@ public class RockPaperScissorsGame {
                 break;
         }
 
-        roundNumber--;
+        if (!result.equals("Draw")) {
+            if (completedRounds == 3) result += " has won the game";
+        }
+        else completedRounds--;
+
         return result;
     }
 }

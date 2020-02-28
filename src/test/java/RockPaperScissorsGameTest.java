@@ -75,4 +75,38 @@ class RockPaperScissorsGameTest {
         Assertions.assertEquals("Player1 has won the game", resultRoundThree);
     }
 
+    @Test
+    void PlayGame_Player1RRRRPlayer2RSSS_ReturnPlayer1(){
+        var resultRoundOne = rockPaperScissorsGame.playRound("Rock", "Rock");
+        Assertions.assertEquals("Draw", resultRoundOne);
+        var resultRoundTwo = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Player1", resultRoundTwo);
+        var resultRoundThree = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Player1", resultRoundThree);
+        var resultRoundFour = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Player1 has won the game", resultRoundFour);
+    }
+
+    @Test
+    void PlayGame_Player1RRRRPlayer2SSSS_ReturnGameIsOver(){
+        var resultRoundOne = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Player1", resultRoundOne);
+        var resultRoundTwo = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Player1", resultRoundTwo);
+        var resultRoundThree = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Player1 has won the game", resultRoundThree);
+        var resultRoundFour = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Game is over", resultRoundFour);
+    }
+
+    @Test
+    void PlayGame_Player1RSRPlayer2SRS_ReturnPlayer1(){
+        var resultRoundOne = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Player1", resultRoundOne);
+        var resultRoundTwo = rockPaperScissorsGame.playRound("Scissor", "Rock");
+        Assertions.assertEquals("Player1", resultRoundTwo);
+        var resultRoundThree = rockPaperScissorsGame.playRound("Rock", "Scissor");
+        Assertions.assertEquals("Player1 has won the game", resultRoundThree);
+    }
+
 }
